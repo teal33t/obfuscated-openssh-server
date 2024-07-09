@@ -16,7 +16,7 @@ RUN useradd -m -s /bin/bash sshuser && \
 RUN mkdir -p /run/sshd
 
 # Configure SSH
-RUN sed -i 's/#Port 22/Port 22\nObfuscatedPort 8443/' /etc/ssh/sshd_config && \
+RUN sed -i 's/#Port 22/Port 2223\nObfuscatedPort 8443/' /etc/ssh/sshd_config && \
     echo "AllowUsers sshuser emily" >> /etc/ssh/sshd_config && \
     echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config && \
     echo "PermitRootLogin no" >> /etc/ssh/sshd_config && \
