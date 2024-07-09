@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  obfuscated-ssh:
+    build: .
+    ports:
+      - "22:22"
+      - "8443:8443"
+    volumes:
+      - ./sshd_config:/etc/ssh/sshd_config:ro
+    restart: unless-stopped
