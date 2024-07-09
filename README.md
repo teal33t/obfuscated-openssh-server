@@ -8,7 +8,7 @@ This project sets up an SSH service with obfuscated SSH support. It uses Docker 
 
 - Docker and Docker Compose installed
 - A basic understanding of SSH
-- [Installing Obfuscated OpenSSH on your client](https://computerscot.github.io/obfuscated-ssh.html)
+- [Installing Obfuscated OpenSSH on your client](https://zinglau.com/projects/ObfuscatedOpenSSHPatches.html)
 
 ### Installation
 
@@ -34,20 +34,30 @@ This project sets up an SSH service with obfuscated SSH support. It uses Docker 
 
 ## Connecting with an SSH Client
 
-To connect to the obfuscated SSH service, use the following command:
+To connect to the obfuscated SSH service, you should install obfuscated-ssh on your client machine
+
 ```bash
-ssh -p 8443 -o ObfuscateKeyword=your-salt-key -D 0.0.0.0:1080 sshuser@your-server-ip
+apt-add-repository ppa:zinglau/obfuscated-openssh
+apt-get update
+apt-get install ssh
+```
+
+And for connecting:
+
+
+```bash
+ssh -p 8443 -o ObfuscateKeyword=123qwer -D 0.0.0.0:1080 sshuser@your-server-ip
 ```
 
 - `-p 8443`: Specifies the port to connect to (obfuscated port)
-- `-o ObfuscateKeyword=your-salt-key`: Uses the obfuscation keyword configured in `sshd_config`
+- `-o ObfuscateKeyword=123qwer`: Uses the obfuscation keyword configured in `sshd_config`, change it use a secure phrase.
 - `-D 0.0.0.0:1080`: Sets up a SOCKS proxy on port `1080`
 - `sshuser@your-server-ip`: Connects to the SSH service as `sshuser`
 
 ## Troubleshooting
 
 - Ensure Docker is running.
-- Verify that ports `22` and `8443` are open and not used by other services.
+- Verify that ports `2223` and `8443` are open and not used by other services.
 - Check the logs for any errors:
   ```bash
   docker logs <container-id>
@@ -59,7 +69,9 @@ This project is licensed under the MIT License.
 
 ## Acknowledgements
 
-- [obfuscated-openssh](https://computerscot.github.io/obfuscated-ssh) - The repository providing obfuscated SSH support.
+- [zinglau](https://zinglau.com/projects/ObfuscatedOpenSSHPatches.html)
+- [obfuscated-openssh](https://computerscot.github.io/obfuscated-ssh)
+- [obfuscated-openssh](https://github.com/brl/obfuscated-openssh)
 
 ---
 
