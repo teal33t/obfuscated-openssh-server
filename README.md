@@ -2,7 +2,7 @@
 
 This project sets up an SSH service with obfuscated SSH support. It uses Docker to containerize the service and provides an example of how to connect using a client with SSH obfuscation.
 
-If you are looking for **Obfuscated SSH Service - Client**, go to [https://github.com/teal33t/obfuscated-openssh-tunnel](https://github.com/teal33t/obfuscated-openssh-client) 
+If you are looking for **Obfuscated SSH Service - Client**, go to [https://github.com/teal33t/obfuscated-openssh-client](https://github.com/teal33t/obfuscated-openssh-client) 
 
 ## Getting Started
 
