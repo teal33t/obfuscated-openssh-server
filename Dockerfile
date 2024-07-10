@@ -47,7 +47,7 @@ RUN sed -i 's/#Port 22/Port 2223\nObfuscatedPort 8443/' /etc/ssh/sshd_config && 
 RUN ssh-keygen -A
 
 # Expose ports
-EXPOSE 22 8443
+EXPOSE 2223 8443
 
 
 # Start SSH service
